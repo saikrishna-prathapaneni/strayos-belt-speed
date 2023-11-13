@@ -7,9 +7,9 @@ This script measures the speed of a conveyor belt carrying debris using a 760p60
 
 Sample images taken for left and right cameras
 
-<div>
-  <img src="assets/image_0.png"  width="300" height="400" />
-  <img src="assets/image_1.png"  width="300" height="400" />
+<div style="text-align: center;">
+  <img src="assets/image_0.png"  width="400" height="400" />
+  <img src="assets/image_1.png"  width="400" height="400" />
 </div>
 
 
