@@ -6,8 +6,8 @@ This script measures the speed of a conveyor belt carrying debris using a 760p60
 
 Sample images (Frame captured on left Image and corresponding depth)
 <p align="center">
-  <img src="assets/image12.png"  width="400" height="400" />
-  <img src="assets/image7.png"  width="400" height="400" />
+  <img src="assets/image12.png"  width="400" height="500" />
+  <img src="assets/image7.png"  width="400" height="500" />
 </p>
 
 
@@ -16,7 +16,7 @@ Following are the speeds captured after removing outliers through window sizes o
   <img src="assets/image8.png"  width="200" height="200" />
   <img src="assets/image5.png"  width="200" height="200" />
   <img src="assets/image3.png"  width="200" height="200" />
-  <img src="assets/image1.png"  width="200" height="200" />
+  <img src="assets/image2.png"  width="200" height="200" />
 </p>
 
 
