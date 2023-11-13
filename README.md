@@ -5,6 +5,8 @@
 ## Overview
 This script measures the speed of a conveyor belt carrying debris using a 760p60fps ZED camera. It utilizes the ZED SDK, OpenCV, NumPy, and Matplotlib to process video frames and calculate the speed of objects moving on the conveyor belt.
 
+![MAE vs Frame count ](assets/mae_vs_frame_count.png)
+
 
 
 ## Prerequisites
@@ -19,8 +21,10 @@ This script measures the speed of a conveyor belt carrying debris using a 760p60
 1. Ensure Python 3.8 is installed on your system.
 2. Install the ZED SDK version 4.x from the [StereoLabs website](https://www.stereolabs.com/developers/).
 3. Install the required Python libraries:
-   ```bash
+   ```
 pip install opencv-python numpy matplotlib
+```
+
 ## Usage
 Run the script using Python:
 `python main.py [OPTIONS]`
