@@ -5,16 +5,15 @@
 ## Overview
 This script measures the speed of a conveyor belt carrying debris using a 760p60fps ZED camera. It utilizes the ZED SDK, OpenCV, NumPy, and Matplotlib to process video frames and calculate the speed of objects moving on the conveyor belt.
 
-![MAE vs Frame count ](assets/mae_vs_frame_count.png)
-
-
-
-Following are the images for different window_size for noise reduction. 
+Sample images taken for left and right cameras
 
 <div>
-  <img src="assets/image_0.png" alt="Sample Frame left captured through left camera" width="200" height="200" />
-  <img src="assets/image_1.jpg" alt="Sample Frame right captured through right camera" width="200" height="200" />
+  <img src="assets/image_0.png"  width="300" height="400" />
+  <img src="assets/image_1.png"  width="300" height="400" />
 </div>
+
+
+![MAE vs Frame count ](assets/mae_vs_frame_count.png)
 
 ## Prerequisites
 - Python 3.8
