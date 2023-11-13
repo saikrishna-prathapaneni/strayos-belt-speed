@@ -20,7 +20,7 @@ This script measures the speed of a conveyor belt carrying debris using a 760p60
 2. Install the ZED SDK version 4.x from the [StereoLabs website](https://www.stereolabs.com/developers/).
 3. Install the required Python libraries:
    ```bash
-`pip install opencv-python numpy matplotlib`
+pip install opencv-python numpy matplotlib
 ## Usage
 Run the script using Python:
 `python main.py [OPTIONS]`
