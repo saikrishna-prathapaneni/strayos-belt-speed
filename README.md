@@ -9,6 +9,13 @@ This script measures the speed of a conveyor belt carrying debris using a 760p60
 
 
 
+Following are the images for different window_size for noise reduction. 
+
+<div>
+  <img src="assets/image_0.png" alt="Sample Frame left captured through left camera" width="200" height="200" />
+  <img src="assets/image_1.jpg" alt="Sample Frame right captured through right camera" width="200" height="200" />
+</div>
+
 ## Prerequisites
 - Python 3.8
 - ZED SDK 4.x
