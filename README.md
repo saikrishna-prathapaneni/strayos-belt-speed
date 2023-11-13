@@ -1,15 +1,22 @@
 # strayos-belt-speed
 
 
-
 ## Overview
 This script measures the speed of a conveyor belt carrying debris using a 760p60fps ZED camera. It utilizes the ZED SDK, OpenCV, NumPy, and Matplotlib to process video frames and calculate the speed of objects moving on the conveyor belt.
 
-Sample images taken for left and right cameras
-
+Sample images (Frame captured on left Image and corresponding depth)
 <p align="center">
-  <img src="assets/image_0.png"  width="400" height="400" />
-  <img src="assets/image_1.png"  width="400" height="400" />
+  <img src="assets/image12.png"  width="400" height="400" />
+  <img src="assets/image7.png"  width="400" height="400" />
+</p>
+
+
+Following are the speeds captured after removing outliers through window sizes of 30, 100, 200 and No outlier removal.
+<p align="center">
+  <img src="assets/image8.png"  width="200" height="200" />
+  <img src="assets/image5.png"  width="200" height="200" />
+  <img src="assets/image3.png"  width="200" height="200" />
+  <img src="assets/image1.png"  width="200" height="200" />
 </p>
 
 
