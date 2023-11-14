@@ -2,7 +2,7 @@
 
 
 ## Overview
-This script measures the speed of a conveyor belt carrying debris using a 760p60fps ZED camera. It utilizes the ZED SDK, OpenCV, NumPy, and Matplotlib to process video frames and calculate the speed of objects moving on the conveyor belt.
+This script measures the speed of a conveyor belt carrying debris using a 760p60fps ZED stereo camera. It utilizes the ZED SDK, OpenCV, NumPy, and Matplotlib to process video frames and calculate the speed of objects moving on the conveyor belt.
 
 Sample images (Frame captured on left camera and corresponding depth)
 <p align="center">
@@ -47,7 +47,9 @@ The script follows these steps to compute the speed of the conveyor belt:
 <br>
 Following are the speeds captured after removing outliers through `--window_size` of 30, 100, 200 and No outlier removal.
 <br>
-Mean speeds Generated for different`--window_size` are `1708 mm/sec for 30, 1645 mm/sec for 100, 1675 mm/sec for 200 and over 1798 mm/sec for no outlier removal.` 
+Mean speeds Generated for different `--window_size` are 1708 mm/sec for 30, 1645 mm/sec for 100, 1675 mm/sec for 200 and over 1798 mm/sec for no outlier removal.
+hence a `--window_size` of 100 is considered.
+
 <br><br>
 <p align="center">
   <img src="assets/image8.png"  width="200" height="200" />
@@ -57,7 +59,7 @@ Mean speeds Generated for different`--window_size` are `1708 mm/sec for 30, 1645
 </p>
 
 
-Following is the graph between MAE (Mean Absolute Error) evalated for 10 frames assuming true speed to be 1600 and finalised on the `--const` parameter to be 0.7.
+Following is the graph between MAE (Mean Absolute Error) evalated for 10 frames (assuming true speed to be 1600 mm/sec) and finalised on the `--const` parameter to be 0.7.
 <br>
 ![MAE vs Frame count ](assets/mae_vs_frame_count.png)
 <br>
@@ -74,7 +76,8 @@ Following is the graph between MAE (Mean Absolute Error) evalated for 10 frames 
 2. Install the ZED SDK version 4.x from the [StereoLabs website](https://www.stereolabs.com/developers/).
 3. Install the required Python libraries:
 ```pip install opencv-python numpy matplotlib```
-
+4. ```git clone https://github.com/saikrishna-prathapaneni/strayos-belt-speed.git```
+    
 
 ## Usage
 Run the script using Python:
@@ -92,9 +95,13 @@ The script will start processing the video feed from the recorded SVO video file
 --window_size: Number of recent readings to consider for outlier detection.<br>
 --include_median_speed: Flag to include median value instead of outlier into the data.<br>
 
-## Further considerations and Future Development
+## Further Considerations and Future Development
 
-1. **KALMAN filter** - In the implementation to handle noise, a computationally low intensive IQR method is employed to further improve the noise handling Kalman filter is under development for accurate speed estimation
-2. **Exponential Moving average** - To improve speed of the algorithm simpler EMA can be used to reduce the outlier.
-3. **Block Matching** - To improve the accuracy of the features, sliding window algorithm can be employed for the matching of selected blocks in consecutive blocks.
-4. **Iterative Closest Point (ICP)** - Iterative closest point algorithm to compute to alignment between the point clouds of two adjacent frames can be used to compute the speed, yet a computationally intensive procedure but with a better estmate of speed.
+1. **Kalman Filter**: In the current implementation for noise handling, a computationally low-intensive IQR method is employed. Further improvement in noise handling is being pursued through the development of a Kalman filter for more accurate speed estimation.
+
+2. **Exponential Moving Average (EMA)**: To enhance the algorithm's speed, a simpler EMA can be utilized to reduce outliers.
+
+3. **Block Matching**: Employing a sliding window algorithm, such as Block Matching, can enhance the accuracy of features by matching selected blocks in consecutive frames.
+
+4. **Iterative Closest Point (ICP)**: The Iterative Closest Point algorithm, while computationally intensive, can be employed to compute the alignment between point clouds of two adjacent frames. Although this is a more resource-intensive process, it provides a better estimate of speed.
+
