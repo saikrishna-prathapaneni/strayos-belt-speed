@@ -59,7 +59,7 @@ hence a `--window_size` of 100 is considered.
 </p>
 
 
-Following is the graph between MAE (Mean Absolute Error) evalated for 10 frames assuming true speed to be 1600 and finalised on the `--const` parameter to be 0.7.
+Following is the graph between MAE (Mean Absolute Error) evalated for 10 frames (assuming true speed to be 1600 mm/sec) and finalised on the `--const` parameter to be 0.7.
 <br>
 ![MAE vs Frame count ](assets/mae_vs_frame_count.png)
 <br>
