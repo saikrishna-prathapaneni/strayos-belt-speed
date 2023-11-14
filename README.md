@@ -2,7 +2,7 @@
 
 
 ## Overview
-This script measures the speed of a conveyor belt carrying debris using a 760p60fps ZED camera. It utilizes the ZED SDK, OpenCV, NumPy, and Matplotlib to process video frames and calculate the speed of objects moving on the conveyor belt.
+This script measures the speed of a conveyor belt carrying debris using a 760p60fps ZED stereo camera. It utilizes the ZED SDK, OpenCV, NumPy, and Matplotlib to process video frames and calculate the speed of objects moving on the conveyor belt.
 
 Sample images (Frame captured on left camera and corresponding depth)
 <p align="center">
@@ -47,7 +47,9 @@ The script follows these steps to compute the speed of the conveyor belt:
 <br>
 Following are the speeds captured after removing outliers through `--window_size` of 30, 100, 200 and No outlier removal.
 <br>
-Mean speeds Generated for different`--window_size` are `1708 mm/sec for 30, 1645 mm/sec for 100, 1675 mm/sec for 200 and over 1798 mm/sec for no outlier removal.` 
+Mean speeds Generated for different `--window_size` are `1708 mm/sec for 30, 1645 mm/sec for 100, 1675 mm/sec for 200 and over 1798 mm/sec for no outlier removal.
+hence a `--window_size` of 100 is considered.
+
 <br><br>
 <p align="center">
   <img src="assets/image8.png"  width="200" height="200" />
