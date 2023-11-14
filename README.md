@@ -4,7 +4,7 @@
 ## Overview
 This script measures the speed of a conveyor belt carrying debris using a 760p60fps ZED camera. It utilizes the ZED SDK, OpenCV, NumPy, and Matplotlib to process video frames and calculate the speed of objects moving on the conveyor belt.
 
-Sample images (Frame captured on left Image and corresponding depth)
+Sample images (Frame captured on left camera and corresponding depth)
 <p align="center">
   <img src="assets/image12.png"  width="200" height="300" />
   <img src="assets/image7.png"  width="200" height="300" />
@@ -18,20 +18,20 @@ The script follows these steps to compute the speed of the conveyor belt:
 
 2. **Feature Extraction**: Using the Scale-Invariant Feature Transform (SIFT) method or a specified alternative, the script extracts features and corresponding keypoints from the video frames. The features represent distinct points or characteristics in the image of the conveyor belt.
 
-      **Note:** To improve the computation speed and reduce noise in detected features only a patch of image is considered based on `--SIFT_window_size` parameter and default to be `([510,250],[700,400]) `.
+      **Note:** To improve the computation speed and reduce noise in detected features only a patch of image is considered based on `--SIFT_window_size` parameter that is default to be `([510,250],[700,400]) `.
 
-3. **Feature Matching**: Features from consecutive frames are matched to track the movement of points across frames. This process uses either the KNN (k-Nearest Neighbors) or Brute-force method for matching.
+3. **Feature Matching**: Features from consecutive frames are matched to track the movement of points across frames. This process uses the KNN (k-Nearest Neighbors).
 
-    **Note:** Brute Force Extraction is not implemented in the program. A parameter `--const` is used for distance ratio test threshold for good matches (Refer to const vs MAE graph below) to select best `--const` value.
+    **Note:**  A parameter `--const` is used for distance ratio test threshold for good matches (Refer to const vs MAE graph below) to select best `--const` value, Brute Force Extraction will be implemented in the further development.
 
 4. **Coordinate Transformation**: The script then transforms image coordinates to world coordinates. This step is crucial for calculating the actual distance moved by points on the conveyor belt in the real world.
-
+    **Note:** For reliable estimate all the three coordinates (X, Y , Z) are considered for displacement measurement.
 
 5. **Speed Calculation**: The speed of the conveyor belt is calculated based on the displacement of matched points in world coordinates and the time elapsed between frames.
-
+    **Note:** For speed estimate a constant interval (of 1/60 sec) is considered between frames to compute the speed.
 6. **Outlier Detection and Noise Removal**: To improve accuracy, the script includes outlier detection. It uses the interquartile range method to identify and exclude any abnormal speed readings that might skew the results.
 
-   **Note:** The parameters `--window_size` (default = 100) is used to find the number of recent readings to consider for outlier detection.
+   **Note:** The parameters `--window_size` (default: 100) is used to find the number of recent readings to consider for outlier detection and the parameter `--threshold` for adjusting the outlier sensitivity.
 
 7. **Result Output**: Finally, the script outputs the calculated speed of the conveyor belt for each frame, along with the corresponding timestamp, and saves this data to a CSV file.
 
@@ -41,7 +41,7 @@ The script follows these steps to compute the speed of the conveyor belt:
 <br>
 Following are the speeds captured after removing outliers through `--window_size` of 30, 100, 200 and No outlier removal.
 <br>
-Mean speeds Generated for different`--window_size` are `1708 mm/sec for 30, 1645 mm/sec for 100, 1675 mm/sec for 200 and over 1900 mm/sec for no outlier removal.` 
+Mean speeds Generated for different`--window_size` are `1708 mm/sec for 30, 1645 mm/sec for 100, 1675 mm/sec for 200 and over 1798 mm/sec for no outlier removal.` 
 <br><br>
 <p align="center">
   <img src="assets/image8.png"  width="200" height="200" />
