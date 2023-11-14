@@ -92,8 +92,9 @@ def is_outlier(args,point, data):
     return point < lower_bound or point > upper_bound
 
 
-def get_speed( world_coordinates: list,
-             curr_timestamp: float,
+def get_speed(args,
+            world_coordinates: list,
+            curr_timestamp: float,
             prev_timestamp: float
             ):
     '''
@@ -139,7 +140,24 @@ def extrapolate_keypoints(keypoints, x_offset, y_offset):
         '''
         for kp in keypoints:
             kp.pt = (kp.pt[0] + x_offset, kp.pt[1] + y_offset)
+ 
         return keypoints
+
+def calculate_dynamic_threshold(args, speeds):
+    '''
+    Calculates the dynamic speed threshold based standard deviation computed.
+    
+    Parameters: list of speeds across the frames and thresholds
+    
+    returns:
+    dynamic threshold 
+    
+    '''
+    if len(speeds) < args.adaptive_threshold_window:
+        return args.near_zero_base_threshold
+    recent_speeds = speeds[-args.adaptive_threshold_window:]
+    std_dev = np.std(recent_speeds)
+    return max(args.near_zero_base_threshold, std_dev)
 
 
 def find_features( args,
@@ -355,12 +373,22 @@ def main(args):
                                                      depth_data,
                                                      good_matches)
 
-            speed = get_speed(world_coordinates, curr_timestamp, prev_timestamp)
+            speed = get_speed(args, world_coordinates, curr_timestamp, prev_timestamp)
             
 
+            dynamic_threshold = calculate_dynamic_threshold(args,speeds)
+
+            # Check for near-zero speed
+
+            if abs(speed) < dynamic_threshold:
+                print("Near zero speed detected between frames")
+                speed = 0
+
             # Check if the speed measured is an outlier
+            
             if len(speeds) > args.window_size:  # Wait until you have enough data points to calculate the median and IQR
-                if is_outlier(args, speed, np.array(speeds[args.window_size:])):  # Check the last window_size readings
+               
+                if is_outlier(args, speed, np.array(speeds[args.window_size:])) and speed!=0 :  # Check the last window_size readings
                     # If it's an outlier, append the median of the non-outliers instead
                     median_speed = calculate_median_of_non_outliers(args, speeds[-args.window_size:])
                     speed = median_speed
@@ -414,11 +442,15 @@ if __name__ == "__main__":
                         type=float, default=0.7, help =" distance ratio test threshold for good matches")
 
     parser.add_argument('--threshold',
-                         type=float, default=1.5, help='The multiplier for the interquartile range to determine outliers in speed estimation.')
+                         type=float, default=2.0, help='The multiplier for the interquartile range to determine outliers in speed estimation.')
     parser.add_argument('--window_size',
-                         type=int, default=100, help='The number of recent readings to consider for outlier detection.')
+                         type=int, default=150, help='The number of recent readings to consider for outlier detection.')
     parser.add_argument('--include_median_speed',
                          type=bool, default=False, help='Flag to inlcude median value instead of Outlier into the data.')
+    parser.add_argument('--adaptive_threshold_window',
+                         type=int, default=100, help=' window of values for adaptive threshold, if the frame captures zero or near zero value.')
+    parser.add_argument('--near_zero_base_threshold',
+                         type=int, default=10, help=' near zero base threshold below which we consider it as a zero.')
 
     args = parser.parse_args()
     try:
