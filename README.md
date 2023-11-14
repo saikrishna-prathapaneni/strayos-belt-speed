@@ -47,7 +47,7 @@ The script follows these steps to compute the speed of the conveyor belt:
 <br>
 Following are the speeds captured after removing outliers through `--window_size` of 30, 100, 200 and No outlier removal.
 <br>
-Mean speeds Generated for different `--window_size` are `1708 mm/sec for 30, 1645 mm/sec for 100, 1675 mm/sec for 200 and over 1798 mm/sec for no outlier removal.
+Mean speeds Generated for different `--window_size` are 1708 mm/sec for 30, 1645 mm/sec for 100, 1675 mm/sec for 200 and over 1798 mm/sec for no outlier removal.
 hence a `--window_size` of 100 is considered.
 
 <br><br>
