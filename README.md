@@ -25,15 +25,18 @@ The script follows these steps to compute the speed of the conveyor belt:
     **Note:**  A parameter `--const` is used for distance ratio test threshold for good matches (Refer to const vs MAE graph below) to select best `--const` value, Brute Force Extraction will be implemented in the further development.
 
 4. **Coordinate Transformation**: The script then transforms image coordinates to world coordinates. This step is crucial for calculating the actual distance moved by points on the conveyor belt in the real world.
-    **Note:** For reliable estimate all the three coordinates (X, Y , Z) are considered for displacement measurement.
 
-5. **Speed Calculation**: The speed of the conveyor belt is calculated based on the displacement of matched points in world coordinates and the time elapsed between frames.
-    **Note:** For speed estimate a constant interval (of 1/60 sec) is considered between frames to compute the speed.
-6. **Outlier Detection and Noise Removal**: To improve accuracy, the script includes outlier detection. It uses the interquartile range method to identify and exclude any abnormal speed readings that might skew the results.
+   **Note:** For reliable estimate all the three coordinates (X, Y , Z) are considered for displacement measurement.
+
+6. **Speed Calculation**: The speed of the conveyor belt is calculated based on the displacement of matched points in world coordinates and the time elapsed between frames.
+
+   **Note:** For speed estimate a constant interval (of 1/60 sec) is considered between frames.
+
+7. **Outlier Detection and Noise Removal**: To improve accuracy, the script includes outlier detection. It uses the interquartile range method to identify and exclude any abnormal speed readings that might skew the results.
 
    **Note:** The parameters `--window_size` (default: 100) is used to find the number of recent readings to consider for outlier detection and the parameter `--threshold` for adjusting the outlier sensitivity.
 
-7. **Result Output**: Finally, the script outputs the calculated speed of the conveyor belt for each frame, along with the corresponding timestamp, and saves this data to a CSV file.
+8. **Result Output**: Finally, the script outputs the calculated speed of the conveyor belt for each frame, along with the corresponding timestamp, and saves this data to a CSV file.
 
 
 
