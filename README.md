@@ -40,9 +40,10 @@ The script follows these steps to compute the speed of the conveyor belt:
 8. **Result Output**: Finally, the script outputs the calculated speed of the conveyor belt for each frame, along with the corresponding timestamp, and saves this data to a CSV file.
 
 <br>
+
 **Assumptions:** Features captured are mostly from the rocks because of the variablity nature across the image, and the rocks are assumed to be stationary when moving on conveyor. (i.e sufficient friction is expected to be present on the conveyor belt to avoid slipping).
 
-
+<br>
 <br>
 Following are the speeds captured after removing outliers through `--window_size` of 30, 100, 200 and No outlier removal.
 <br>
