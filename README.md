@@ -76,7 +76,7 @@ Following is the graph between MAE (Mean Absolute Error) evalated for 10 frames 
 2. Install the ZED SDK version 4.x from the [StereoLabs website](https://www.stereolabs.com/developers/).
 3. Install the required Python libraries:
 ```pip install opencv-python numpy matplotlib```
-
+    
 
 ## Usage
 Run the script using Python:
