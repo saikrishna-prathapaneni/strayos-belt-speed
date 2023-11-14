@@ -232,8 +232,8 @@ def get_world_coordinates(args,
     Parameters:
     prev_keypoints: n-1 frame's keypoints
     prev_depth: n-1 frame's depth
-    curr_keypoints: n-1 frame's keypoints
-    curr_depth: n-1 frame's depth
+    curr_keypoints: n frame's keypoints
+    curr_depth: n frame's depth
     good_matches: filtered mactches between both frames
 
     Returns:
@@ -314,7 +314,7 @@ def main(args):
    
     speed = 0 # millimeters per second
 
-    speeds =[]
+    speeds = []
 
     while key != 113:
         err = cam.grab(runtime)
@@ -359,17 +359,19 @@ def main(args):
             
 
             # Check if the speed measured is an outlier
-            if len(speeds) > args.window_size:  # Wait until you have enough data points to calculate the median and IQR
-                if is_outlier(args, speed, np.array(speeds[args.window_size:])):  # Check the last window_size readings
-                    # If it's an outlier, append the median of the non-outliers instead
-                    median_speed = calculate_median_of_non_outliers(args, speeds[-args.window_size:])
-                    speed = median_speed
-                    if args.include_median_speed:
-                        speeds.append(median_speed)
-                else:
-                    speeds.append(speed)
-            else:
-                speeds.append(speed)
+            # if len(speeds) > args.window_size:  # Wait until you have enough data points to calculate the median and IQR
+            #     if is_outlier(args, speed, np.array(speeds[args.window_size:])):  # Check the last window_size readings
+            #         # If it's an outlier, append the median of the non-outliers instead
+            #         median_speed = calculate_median_of_non_outliers(args, speeds[-args.window_size:])
+            #         speed = median_speed
+            #         if args.include_median_speed:
+            #             speeds.append(median_speed)
+            #     else:
+            #         speeds.append(speed)
+            # else:
+            #     speeds.append(speed)
+
+
             prev_gray_frame = gray_frame
             prev_depth = depth_data
             prev_timestamp = curr_timestamp
