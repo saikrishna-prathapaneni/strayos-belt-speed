@@ -112,4 +112,4 @@ The script will start processing the video feed from the recorded SVO video file
 
 5. **Circular Buffer for speeds list**: The speeds list grows exponentially as the video length grows, hence a circular buffer (deque) should be implemented.
 
-6. **Zero speed detection**: here a simple dynamic thresholding technique is employed to find the zero speed of the conveyor belt, a much more efficient solution like based z score could be employed here for robust detection.
+6. **Zero speed detection**: here a simple dynamic thresholding technique is employed to find the zero speed of the conveyor belt, a much more efficient solution based on z score could be employed here for robust detection.
