@@ -33,11 +33,14 @@ The script follows these steps to compute the speed of the conveyor belt:
 
    **Note:** For speed estimate a constant interval (of 1/60 sec) is considered between frames.
 
+
 7. **Outlier Detection and Noise Removal**: To improve accuracy, the script includes outlier detection. It uses the interquartile range method to identify and exclude any abnormal speed readings that might skew the results.
 
    **Note:** The parameters `--window_size` (default: 100) is used to find the number of recent readings to consider for outlier detection and the parameter `--threshold` for adjusting the outlier sensitivity.
 
-8. **Result Output**: Finally, the script outputs the calculated speed of the conveyor belt for each frame, along with the corresponding timestamp, and saves this data to a CSV file.
+8. **Zero speed detection**: zero speed detection is based on adaptive threshold that returns based on last `--adaptive_threshold_window` (default: 30) standard deviation values measured. `--near_zero_base_threshold` (default: 10) is base threshold to consider it as a zero speed
+
+9. **Result Output**: Finally, the script outputs the calculated speed of the conveyor belt for each frame, along with the corresponding timestamp, and saves this data to a CSV file.
 
 <br>
 
@@ -94,6 +97,8 @@ The script will start processing the video feed from the recorded SVO video file
 --threshold: Multiplier for the interquartile range for outlier detection.<br>
 --window_size: Number of recent readings to consider for outlier detection.<br>
 --include_median_speed: Flag to include median value instead of outlier into the data.<br>
+--adaptive_threshold_window: window of values for adaptive threshold, if the frame captures zero or near zero value.<br>
+--near_zero_base_threshold: near zero base threshold below which we consider it as a zero.<br>
 
 ## Further Considerations and Future Development
 
@@ -105,3 +110,6 @@ The script will start processing the video feed from the recorded SVO video file
 
 4. **Iterative Closest Point (ICP)**: The Iterative Closest Point algorithm, while computationally intensive, can be employed to compute the alignment between point clouds of two adjacent frames. Although this is a more resource-intensive process, it provides a better estimate of speed.
 
+5. **Circular Buffer for speeds list**: The speeds list grows exponentially as the video length grows, hence a circular buffer (deque) should be implemented.
+
+6. **Zero speed detection**: here a simple dynamic thresholding technique is employed to find the zero speed of the conveyor belt, a much more efficient solution like based z score could be employed here for robust detection.
