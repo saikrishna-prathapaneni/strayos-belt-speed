@@ -427,8 +427,6 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="get speed of the conveyor")
-    parser.add_argument("--svo_file_path",
-                         type=str, help="Path to the input SVO file")
     
     parser.add_argument("--feature_extractor",
                         type=str, default="SIFT", help ="pass the feature extractor")
