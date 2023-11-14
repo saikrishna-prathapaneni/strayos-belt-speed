@@ -92,9 +92,13 @@ The script will start processing the video feed from the recorded SVO video file
 --window_size: Number of recent readings to consider for outlier detection.<br>
 --include_median_speed: Flag to include median value instead of outlier into the data.<br>
 
-## Further considerations and Future Development
+## Further Considerations and Future Development
 
-1. **KALMAN filter** - In the implementation to handle noise, a computationally low intensive IQR method is employed to further improve the noise handling Kalman filter is under development for accurate speed estimation
-2. **Exponential Moving average** - To improve speed of the algorithm simpler EMA can be used to reduce the outlier.
-3. **Block Matching** - To improve the accuracy of the features, sliding window algorithm can be employed for the matching of selected blocks in consecutive blocks.
-4. **Iterative Closest Point (ICP)** - Iterative closest point algorithm to compute to alignment between the point clouds of two adjacent frames can be used to compute the speed, yet a computationally intensive procedure but with a better estmate of speed.
+1. **Kalman Filter**: In the current implementation for noise handling, a computationally low-intensive IQR method is employed. Further improvement in noise handling is being pursued through the development of a Kalman filter for more accurate speed estimation.
+
+2. **Exponential Moving Average (EMA)**: To enhance the algorithm's speed, a simpler EMA can be utilized to reduce outliers.
+
+3. **Block Matching**: Employing a sliding window algorithm, such as Block Matching, can enhance the accuracy of features by matching selected blocks in consecutive frames.
+
+4. **Iterative Closest Point (ICP)**: The Iterative Closest Point algorithm, while computationally intensive, can be employed to compute the alignment between point clouds of two adjacent frames. Although this is a more resource-intensive process, it provides a better estimate of speed.
+
