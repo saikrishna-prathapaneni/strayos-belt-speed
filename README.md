@@ -14,6 +14,7 @@ Sample images (Frame captured on left camera and corresponding depth)
 ## Procedure:
 The script follows these steps to compute the speed of the conveyor belt:
 
+
 1. **Initialization**: The script starts by initializing the ZED camera using the ZED SDK and loads video frames sequentially. It sets up the camera parameters and checks if the correct version of the SDK is being used.
 
 2. **Feature Extraction**: Using the Scale-Invariant Feature Transform (SIFT) method or a specified alternative, the script extracts features and corresponding keypoints from the video frames. The features represent distinct points or characteristics in the image of the conveyor belt.
@@ -38,7 +39,8 @@ The script follows these steps to compute the speed of the conveyor belt:
 
 8. **Result Output**: Finally, the script outputs the calculated speed of the conveyor belt for each frame, along with the corresponding timestamp, and saves this data to a CSV file.
 
-
+<br>
+**Assumptions:** Features captured are mostly from the rocks because of the variablity nature across the image, and the rocks are assumed to be stationary when moving on conveyor. (i.e sufficient friction is expected to be present on the conveyor belt to avoid slipping).
 
 
 <br>
