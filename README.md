@@ -42,7 +42,7 @@ The script follows these steps to compute the speed of the conveyor belt:
 Following are the speeds captured after removing outliers through `--window_size` of 30, 100, 200 and No outlier removal.
 <br>
 Mean speeds Generated for different`--window_size` are `1708 mm/sec for 30, 1645 mm/sec for 100, 1675 mm/sec for 200 and over 1900 mm/sec for no outlier removal.` 
-<br>
+<br><br>
 <p align="center">
   <img src="assets/image8.png"  width="200" height="200" />
   <img src="assets/image5.png"  width="200" height="200" />
@@ -52,9 +52,9 @@ Mean speeds Generated for different`--window_size` are `1708 mm/sec for 30, 1645
 
 
 Following is the graph between MAE (Mean Absolute Error) evalated for 10 frames assuming true speed to be 1600 and finalised on the `--const` parameter to be 0.7.
-
+<br>
 ![MAE vs Frame count ](assets/mae_vs_frame_count.png)
-
+<br>
 ## Prerequisites
 - Python 3.8
 - ZED SDK 4.x
@@ -77,14 +77,14 @@ The script will start processing the video feed from the recorded SVO video file
 
 ## The script accepts several command-line arguments for customization:
 
---feature_extractor: Feature extractor to use (default is SIFT(Scale Invariant Feature Transform)).
---SIFT_window_size: Window size within which features are extracted.
---matcher: Feature matching algorithm (KNN or Brute-force).
---viz: Enable visualization of feature extraction and matching.
---const: Distance ratio test threshold for good matches.
---threshold: Multiplier for the interquartile range for outlier detection.
---window_size: Number of recent readings to consider for outlier detection.
---include_median_speed: Flag to include median value instead of outlier into the data.
+--feature_extractor: Feature extractor to use (default is SIFT(Scale Invariant Feature Transform)).<br>
+--SIFT_window_size: Window size within which features are extracted.<br>
+--matcher: Feature matching algorithm (KNN or Brute-force).<br>
+--viz: Enable visualization of feature extraction and matching.<br>
+--const: Distance ratio test threshold for good matches.<br>
+--threshold: Multiplier for the interquartile range for outlier detection.<br>
+--window_size: Number of recent readings to consider for outlier detection.<br>
+--include_median_speed: Flag to include median value instead of outlier into the data.<br>
 
 ## Further considerations and Future Development
 
