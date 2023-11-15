@@ -47,7 +47,8 @@ The script follows these steps to compute the speed of the conveyor belt:
 **Assumptions:** Features captured are mostly from the rocks because of the variablity nature across the image, and the rocks are assumed to be stationary when moving on conveyor. (i.e sufficient friction is expected to be present on the conveyor belt to avoid slipping).
 
 
-Following is the graph between frequency and velcoity distrbution (), we  can see that max count value to be <b>1526 mm/sec</b> which is close to true value of 1500 mm/sec
+<b> Following is the graph between frequency and velocity distrbution (velocity printed on top of bars), we  can see that max count value to be <b>1526 mm/sec</b> which is close to true value of 1500 mm/sec </b>
+
 <br>
 <br>
 ![Speed Distribution of against frequency](assets/speed_dist.png)
