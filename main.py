@@ -388,7 +388,7 @@ def main(args):
             
             if len(speeds) > args.window_size:  # Wait until you have enough data points to calculate the median and IQR
                
-                if is_outlier(args, speed, np.array(speeds[args.window_size:])) and speed!=0 :  # Check the last window_size readings
+                if is_outlier(args, speed, np.array(speeds[-args.window_size:])) and speed!=0 :  # Check the last window_size readings
                     # If it's an outlier, append the median of the non-outliers instead
                     median_speed = calculate_median_of_non_outliers(args, speeds[-args.window_size:])
                     speed = median_speed
