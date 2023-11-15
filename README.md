@@ -50,7 +50,6 @@ The script follows these steps to compute the speed of the conveyor belt:
 <b>Following is the graph between frequency and velocity distrbution (velocity printed on top of bars), we  can see that max count value to be <b>1526 mm/sec</b> which is close to true value of 1500 mm/sec.</b>
 
 <br>
-<br>
 
 ![Speed Distribution](assets/speed_dist.png)
 <br>
