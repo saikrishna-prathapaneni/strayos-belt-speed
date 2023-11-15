@@ -47,7 +47,7 @@ The script follows these steps to compute the speed of the conveyor belt:
 **Assumptions:** Features captured are mostly from the rocks because of the variablity nature across the image, and the rocks are assumed to be stationary when moving on conveyor. (i.e sufficient friction is expected to be present on the conveyor belt to avoid slipping).
 
 
-<b>Following is the graph between frequency and velocity distrbution (velocity printed on top of bars), we  can see that max count value to be <b>1526 mm/sec</b> which is close to true value of 1500 mm/sec.</b>
+<b>Following is the graph between frequency and velocity distrbution (velocity printed on top of bars), we can observe that max count edge value to be <b>1526 mm/sec</b> for 50 bins which is close to true value of 1500 mm/sec with IQR determined on a range of 100.</b>
 
 <br>
 
