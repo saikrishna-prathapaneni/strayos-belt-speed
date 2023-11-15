@@ -46,7 +46,14 @@ The script follows these steps to compute the speed of the conveyor belt:
 
 **Assumptions:** Features captured are mostly from the rocks because of the variablity nature across the image, and the rocks are assumed to be stationary when moving on conveyor. (i.e sufficient friction is expected to be present on the conveyor belt to avoid slipping).
 
+
+Following is the graph between frequency and velcoity distrbution (), we  can see that max count value to be <b>1526 mm/sec</b> which is close to true value of 1500 mm/sec
 <br>
+<br>
+![Speed Distribution of against frequency](assets/speed_dist.png)
+<br>
+
+
 <br>
 Following are the speeds captured after removing outliers through `--window_size` of 30 frames, 100 frames, 200 frames and No outlier removal.
 <br>
@@ -66,6 +73,10 @@ Following is the graph between MAE (Mean Absolute Error) evalated for 10 frames 
 <br>
 ![MAE vs Frame count ](assets/mae_vs_frame_count.png)
 <br>
+
+
+
+
 ## Prerequisites
 - Python 3.8
 - ZED SDK 4.x
