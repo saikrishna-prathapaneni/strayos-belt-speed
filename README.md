@@ -38,7 +38,7 @@ The script follows these steps to compute the speed of the conveyor belt:
 
    **Note:** The parameters `--window_size` (default: 100) is used to find the number of recent readings to consider for outlier detection and the parameter `--threshold` for adjusting the outlier sensitivity.
 
-8. **Zero speed detection**: zero speed detection is based on adaptive threshold that returns based on last `--adaptive_threshold_window` (default: 30) standard deviation values measured. `--near_zero_base_threshold` (default: 10) is base threshold to consider it as a zero speed
+8. **Zero speed detection**: zero speed detection is based on adaptive threshold that returns based on `--adaptive_threshold_window` 's (default: 30) standard deviation values measured. `--near_zero_base_threshold` (default: 10) is base threshold to consider it as a zero speed
 
 9. **Result Output**: Finally, the script outputs the calculated speed of the conveyor belt for each frame, along with the corresponding timestamp, and saves this data to a CSV file.
 
@@ -123,4 +123,4 @@ The script will start processing the video feed from the recorded SVO video file
 
 5. **Circular Buffer for speeds list**: The speeds list grows exponentially as the video length grows, hence a circular buffer (deque) should be implemented.
 
-6. **Zero speed detection**: here a simple dynamic thresholding technique is employed to find the zero speed of the conveyor belt, a much more efficient solution like based z score could be employed here for robust detection.
+6. **Zero speed detection**: here a simple dynamic thresholding technique is employed to find the zero speed of the conveyor belt, a much more efficient solution based on z score could be employed here for robust detection.
