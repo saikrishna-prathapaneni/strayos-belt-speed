@@ -116,7 +116,7 @@ The script will start processing the video feed from the recorded SVO video file
 
 1. **Kalman Filter**: In the current implementation for noise handling, a computationally low-intensive IQR method is employed. Further improvement in noise handling is being pursued through the development of a Kalman filter for more accurate speed estimation.
 
-2. **Exponential Moving Average (EMA)**: To enhance the algorithm's speed, a simpler EMA can be utilized to reduce outliers.
+2. **RANSAC (Random Sample Consensus)**: To enhance the algorithm's accuracy of speed, RANSAC can be applied for incoming speed stream similar to IQR for better estimate of the speed.
 
 3. **Block Matching**: Employing a sliding window algorithm, such as Block Matching, can enhance the accuracy of features by matching selected blocks in consecutive frames.
 
