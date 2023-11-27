@@ -13,10 +13,6 @@ import argparse
 import numpy as np
 import matplotlib.pyplot as plt
 
-
-
-
-
 def handle_depth(z):
     '''
     Parameters:
@@ -52,7 +48,6 @@ def image_to_world(args, x, y, Z):
    
     X =   Z * (x - args.cx)/ (args.fx) 
     Y =   Z * (y - args.cy)/ (args.fy)
-
     return X, Y, Z
 
 
@@ -115,10 +110,11 @@ def get_speed(args,
     for coord in world_coordinates:
         point1 = coord[0]
         point2 = coord[1]
-        
-        d = np.sqrt((point1[0]-point2[0])**2 + (point1[1]-point2[1])**2 + (point1[2]-point2[2])**2)
-        total_dist += d
-        count +=1
+        #check for valid depths
+        if (point1[2] > 0)  and (point2[2] > 0):
+            d = np.sqrt((point1[0]-point2[0])**2 + (point1[1]-point2[1])**2 + (point1[2]-point2[2])**2)
+            total_dist += d
+            count +=1
     
 
     avg_dist = total_dist/count
@@ -177,6 +173,8 @@ def find_features( args,
     matched features 
     
     """
+    
+
     prev_keypoints,prev_descriptors,curr_keypoints,curr_descriptors = None, None, None, None
     if args.feature_extractor =="SIFT":
             window_coords = args.SIFT_window_size
@@ -210,6 +208,8 @@ def find_features( args,
     matches= None
 
     if args.matcher== 'knn':
+        
+       
         FLANN_INDEX_KDTREE = 0
         index_params = dict(algorithm=FLANN_INDEX_KDTREE, trees=5)
         search_params = dict(checks=50)
@@ -233,6 +233,8 @@ def find_features( args,
                                              flags=cv2.DrawMatchesFlags_NOT_DRAW_SINGLE_POINTS)
             plt.imshow(matched_image)
             plt.show()
+            
+           
 
         return prev_keypoints, curr_keypoints, good_matches
     
