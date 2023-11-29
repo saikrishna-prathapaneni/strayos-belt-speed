@@ -442,7 +442,7 @@ if __name__ == "__main__":
                         type=float, default=0.7, help =" distance ratio test threshold for good matches")
 
     parser.add_argument('--threshold',
-                         type=float, default=2.0, help='The multiplier for the interquartile range to determine outliers in speed estimation.')
+                         type=float, default=1.0, help='The multiplier for the interquartile range to determine outliers in speed estimation.')
     parser.add_argument('--window_size',
                          type=int, default=150, help='The number of recent readings to consider for outlier detection.')
     parser.add_argument('--include_median_speed',

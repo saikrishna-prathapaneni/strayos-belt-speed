@@ -68,6 +68,19 @@ hence a `--window_size` of 100 is considered.
   <img src="assets/speedtime_200.png"  width="200" height="200" />
   <img src="assets/image2.png"  width="200" height="200" />
 </p>
+<br>
+
+following are the speeds obtained for different speeds obtained for different `--const` values following are graphs for, 0.75, 1.0 and 2.0 respectively. We can observe that as the const value is reduced, speed outliers are penalized more. 
+
+<br>
+<p align="center">
+  <img src="assets/const_0_75.png"  width="300" height="300" />
+  <img src="assets/const_1_0.png"  width="300" height="300" />
+  <img src="assets/const_2_0.png"  width="300" height="300" />
+</p>
+<br>
+
+
 
 
 Following is the graph between MAE (Mean Absolute Error) evalated for 10 frames (assuming true speed to be 1500 mm/sec) and finalised on the `--const` parameter to be 0.7.
