@@ -70,7 +70,7 @@ hence a `--window_size` of 100 is considered.
 </p>
 <br>
 
-following are the speeds obtained for different speeds obtained for different `--const` values following are graphs for, 0.75, 1.0 and 2.0 respectively. We can observe that as the const value is reduced, speed outliers are penalized more. 
+following are the speeds obtained for different `--const` values. following are graphs for, 0.75, 1.0 and 2.0 `--const` values respectively. We can observe that as the const value is reduced, Outliers in speed are penalized more. 
 
 <br>
 <p align="center">
